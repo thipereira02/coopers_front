@@ -42,9 +42,13 @@ export const BgElement = styled.img<ElementProps>`
     display: none;
     height: 30rem;
     position: absolute;
-    top: ${(props) => props.top === "back" ? "40rem" : "38.6rem"};
+    top: ${(props) => props.top === "back" ? "45rem" : "43.6rem"};
 
     @media(min-width: 768px) {
         display: block;
+    }
+
+    @media(max-width: 1024px) {
+        height: 22rem;
     }
 `;
