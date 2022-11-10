@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import background from "../assets/BG_black.jpg";
-import { ListBox } from "../layouts/common/Components";
+import element from "../assets/element.png";
+import element2 from "../assets/element2.png";
+import { ListBox, BgElement } from "../layouts/common/Components";
 
 export default function ToDoList() {
 	return(
@@ -20,6 +22,8 @@ export default function ToDoList() {
 					<h1>Done</h1>
 				</ListBox>
 			</Lists>
+			<BgElement src={element} alt="element" top={"back"} />
+			<BgElement src={element2} alt="element2" top={"front"} />
 		</>
 	);
 }

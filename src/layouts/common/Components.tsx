@@ -4,6 +4,11 @@ interface BoxProps {
     color?: string;
 }
 
+interface ElementProps {
+    top?: string;
+    display?: string;
+}
+
 export const ListBox = styled.div<BoxProps>`
     display: flex;
     flex-direction: column;
@@ -30,5 +35,16 @@ export const ListBox = styled.div<BoxProps>`
 
     @media(min-width: 1024px) {
         max-width: 25vw;
+    }
+`;
+
+export const BgElement = styled.img<ElementProps>`
+    display: none;
+    height: 30rem;
+    position: absolute;
+    top: ${(props) => props.top === "back" ? "40rem" : "38.6rem"};
+
+    @media(min-width: 768px) {
+        display: block;
     }
 `;
