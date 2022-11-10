@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import background from "../assets/BG_black.jpg";
+import { ListBox } from "../layouts/common/Components";
 
 export default function ToDoList() {
 	return(
@@ -12,12 +13,12 @@ export default function ToDoList() {
 				<h2>Drag and drop to set your main priorities, check when done and create what´s new.</h2>
 			</Banner>
 			<Lists>
-				<ToDoContainer>
-					<h1>sdfsdf</h1>
-				</ToDoContainer>
-				<DoneContainer>
-					<h1>asasf</h1>
-				</DoneContainer>
+				<ListBox color={"todo"}>
+					<h1>To-do</h1>
+				</ListBox>
+				<ListBox color={"done"}>
+					<h1>Done</h1>
+				</ListBox>
 			</Lists>
 		</>
 	);
@@ -85,34 +86,11 @@ const Lists = styled.div`
 
     @media(min-width: 768px) {
         flex-direction: row;
-        padding: 0 25%;
+        justify-content: space-evenly;
+        padding: 0 15%;
     }
-`;
 
-const ToDoContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80vw;
-    height: 20vh;
-    box-shadow: 0px 4px 12px rgba(66, 66, 66, 0.198454);
-    border-top: 1rem solid #4AC959;
-
-    @media(min-width: 768px) {
-        border-width: 1.25rem;
-    }
-`;
-
-const DoneContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80vw;
-    height: 20vh;
-    box-shadow: 0px 4px 12px rgba(66, 66, 66, 0.198454);
-    border-top: 1rem solid #E88D39;
-
-    @media(min-width: 768px) {
-        border-width: 1.25rem;
+    @media(min-width: 1024px) {
+        padding: 0 20%;
     }
 `;
