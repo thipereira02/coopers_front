@@ -24,6 +24,8 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    filter: alpha(opacity=50);
+    opacity: 1;
 `;
 
 const Name = styled.div`
@@ -52,6 +54,7 @@ const SignIn = styled.button`
     font-size: 0.875rem;
     font-weight: 600;
     cursor: pointer;
+    z-index: 1;
 
     @media(min-width: 768px){
         width: 7.5rem;
