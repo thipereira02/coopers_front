@@ -54,7 +54,7 @@ const SignIn = styled.button`
     font-size: 0.875rem;
     font-weight: 600;
     cursor: pointer;
-    z-index: 1;
+    z-index: 3;
 
     @media(min-width: 768px){
         width: 7.5rem;

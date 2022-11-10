@@ -103,6 +103,7 @@ const Logo = styled.img`
     top: 2rem;
     right: 0;
     height: 30rem;
+    z-index: 1;
 
     @media(min-width: 768px){
         top: 2rem;
@@ -117,4 +118,5 @@ const CoverImage = styled.img`
     position: absolute;
     top: 7rem;
     right: 1.8rem;
+    z-index: 2;
 `;
