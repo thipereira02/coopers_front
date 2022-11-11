@@ -70,7 +70,6 @@ const TextArea = styled.div`
         color: #FFF;
         font-size: 1rem;
         font-weight: 600;
-        cursor: pointer;
     }
 
     @media(min-width: 768px){

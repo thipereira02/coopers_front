@@ -35,6 +35,10 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 1;
         font-family: 'Montserrat', sans-serif;
 	}
+	textarea {
+		resize: none;
+		font-family: 'Montserrat', sans-serif;
+	}
 	ol, ul {
 		list-style: none;
 	}
@@ -61,7 +65,12 @@ const GlobalStyle = createGlobalStyle`
 		box-sizing: border-box;
 		outline: none;
 		scroll-behavior: smooth;
+		font-family: 'Montserrat', sans-serif;
     }
+	button{
+		cursor: pointer;
+		font-family: 'Montserrat', sans-serif;
+	}
 `;
 
 export default GlobalStyle;

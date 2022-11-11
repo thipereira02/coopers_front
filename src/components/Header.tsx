@@ -53,7 +53,6 @@ const SignIn = styled.button`
     font-family: 'Poppins', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
-    cursor: pointer;
     z-index: 3;
 
     @media(min-width: 768px){
