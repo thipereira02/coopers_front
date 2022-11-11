@@ -41,20 +41,20 @@ const Banner = styled.div`
 
     h1{
         color: #FFF;
-        font-size: 2.2rem;
+        font-size: 2rem;
         font-family: 'Poppins', sans-serif;
         text-decoration: underline;
         text-decoration-color: #4AC959;
         text-underline-position: under;
         position: absolute;
-        top: 35%;
+        top: 32%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     h2{
         color: #FFF;
-        font-size: 0.8rem;
+        font-size: 1rem;
         font-weight: 500;
         position: absolute;
         top: 60%;

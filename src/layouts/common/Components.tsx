@@ -17,7 +17,7 @@ export const ListBox = styled.div<BoxProps>`
     height: 20vh;
     box-shadow: 0px 4px 12px rgba(66, 66, 66, 0.198454);
     border-top: 1rem solid;
-    border-color: ${(props) => props.color === "todo" ? "#4AC959" : "#E88D39"};
+    border-color: ${(props) => props.color === "todo" ? "#E88D39" : "#4AC959"};
     margin-bottom: 1rem;
     padding-top: 1.5rem;
 

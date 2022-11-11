@@ -3,14 +3,27 @@ import styled from "styled-components";
 
 export default function GoodThing() {
 	return(
-		<Background>
-			<h1>good things</h1>
-		</Background>
+		<Content>
+			<Background>
+				<h1>good things</h1>
+			</Background>
+		</Content>
 	);
 }
 
+const Content = styled.div`
+    padding: 0 2rem;
+
+    @media (min-width: 768px){
+        padding: 0 7rem;
+    }
+
+    @media (min-width: 1024px){
+        padding: 0 10rem;
+    }
+`;
+
 const Background = styled.div`
-    width: 80vw;
     height: 18rem;
     background-color: #4AC959;
     border-radius: 0.625rem;
@@ -25,7 +38,6 @@ const Background = styled.div`
     }
 
     @media(min-width: 768px) {
-        width: 70vw;
         padding-left: 5rem;
         padding-top: 5rem;
     }
