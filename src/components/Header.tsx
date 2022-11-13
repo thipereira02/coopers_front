@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
+import ModalContext from "../contexts/ModalContext";
 import logo from "../assets/Fill 1.jpg";
 
-export default function Header() {
+export default function Header() { 
+	const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
+
+	const toggleModal = () => {
+		setIsModalVisible(!isModalVisible);
+	};
+    
 	return (
-		<Content>
-			<Name>
-				<img src={logo} alt="logo" />
-				<h1>coopers</h1>
-			</Name>
-			<SignIn>
-                entrar
-			</SignIn>
-		</Content>
+		<>
+			<Content>
+				<Name>
+					<img src={logo} alt="logo" />
+					<h1>coopers</h1>
+				</Name>
+				<SignIn onClick={toggleModal}>
+                    entrar
+				</SignIn>
+			</Content>
+		</>
 	);
 }
 
