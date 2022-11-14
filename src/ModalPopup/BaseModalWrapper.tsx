@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 
-import { DesktopModalContainer, Title, Form } from "./ModalPopupStyle";
+import { DesktopModalContainer, Title, Form } from "../layouts/ModalPopupStyle";
 import image from "../assets/image 1.jpg";
 
 interface BaseModalWrapperProps {
