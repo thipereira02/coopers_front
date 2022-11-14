@@ -32,7 +32,7 @@ const Banner = styled.div`
     width: 100vw;
     display: inline-block;
     position: relative;
-    margin-top: 1rem;
+    margin-top: -4rem;
 
     img{
         width: 100vw;

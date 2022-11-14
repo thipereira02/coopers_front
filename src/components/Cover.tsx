@@ -11,9 +11,9 @@ export default function Cover() {
 				<h1>Organize</h1>
 				<h1>your daily jobs</h1>
 				<h2>The only way to get things done</h2>
-				<button>Go to To-do list</button>
+				<button onClick={() => window.scrollBy(0, window.innerHeight)}>Go to To-do list</button>
 			</TextArea>
-			<div>
+			<div> 
 				<Logo src={bg} alt="logo" />
 				<CoverImage src={coverImage} alt="image" />
 			</div>
@@ -26,11 +26,13 @@ const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 
     @media(min-width: 768px){
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
+        height: 100%;
     }
 `;
 
@@ -38,7 +40,7 @@ const TextArea = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 25rem;
+    margin-top: 16rem;
 
     h1:nth-child(1){
         font-size: 3rem;
