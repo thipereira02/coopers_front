@@ -11,7 +11,7 @@ export default function Cover() {
 				<h1>Organize</h1>
 				<h1>your daily jobs</h1>
 				<h2>The only way to get things done</h2>
-				<button onClick={() => window.scrollBy(0, window.innerHeight)}>Go to To-do list</button>
+				<button onClick={() => window.scrollTo(0, 550)}>Go to To-do list</button>
 			</TextArea>
 			<div> 
 				<Logo src={bg} alt="logo" />
