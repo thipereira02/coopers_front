@@ -52,3 +52,20 @@ export const BgElement = styled.img<ElementProps>`
         height: 22rem;
     }
 `;
+
+export const Button = styled.button`
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #000;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    z-index: 3;
+
+    @media(min-width: 768px){
+        width: 7.5rem;
+    }
+`;

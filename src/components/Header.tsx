@@ -1,17 +1,35 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { toast } from "react-toastify";
 
 import ModalContext from "../contexts/ModalContext";
 import logo from "../assets/Fill 1.jpg";
+import { Button } from "../layouts/common/Components";
+import { logout } from "../services/requests";
+import UserContext from "../contexts/UserContext";
 
 export default function Header() { 
 	const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
 	const user = localStorage.getItem("user");
+	const { userData } = useContext(UserContext);
 
 	const toggleModal = () => {
 		setIsModalVisible(!isModalVisible);
 	};
-    
+
+	const finishSession = () => {
+		if (window.confirm("Are you sure you want to logout?")) {
+			const req = logout(userData.token);
+			req.then(() => {
+				localStorage.removeItem("user");
+				window.location.reload();
+			}).catch(err => {
+				console.log(err);
+				toast.error("An error occurred while trying to sign out. Try again.");
+			});
+		}
+	};
+
 	return (
 		<>
 			<Content>
@@ -19,9 +37,15 @@ export default function Header() {
 					<img src={logo} alt="logo" />
 					<h1>coopers</h1>
 				</Name>
-				<SignIn onClick={toggleModal}>
-					{user ? "sair" : "entrar"}
-				</SignIn>
+				{user ? (
+					<Button onClick={finishSession}>
+                        sair
+					</Button>
+				) : (
+					<Button onClick={toggleModal}>
+                    entrar
+					</Button>
+				)}
 			</Content>
 		</>
 	);
@@ -50,22 +74,5 @@ const Name = styled.div`
     h1{
         font-size: 1.6rem;
         font-weight: 600;
-    }
-`;
-
-const SignIn = styled.button`
-    width: 5rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: #000;
-    color: #FFF;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    z-index: 3;
-
-    @media(min-width: 768px){
-        width: 7.5rem;
     }
 `;
