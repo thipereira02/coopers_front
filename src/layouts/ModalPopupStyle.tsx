@@ -130,3 +130,20 @@ export const Form = styled.form`
         }
     }
 `;
+
+export const StyledLink = styled.div`
+    p{
+        font-size: 1rem;
+        text-align: center;
+
+        :hover{
+            opacity: 0.7;
+        }
+    }
+
+    @media (min-width: 768px) {
+        p{
+            font-size: 1.2rem;
+        }
+    }
+`;

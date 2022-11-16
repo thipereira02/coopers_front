@@ -28,17 +28,21 @@ const Background = styled.div`
     background-color: #4AC959;
     border-radius: 0.625rem;
     margin: 3rem auto;
-    padding-left: 2rem;
     padding-top: 3rem;
 
     h1{
         color: #FFF;
         font-size: 2.2rem;
         font-weight: 700;
+        margin-bottom: 1.375rem;
+        padding-left: 2rem;
     }
 
     @media(min-width: 768px) {
-        padding-left: 5rem;
         padding-top: 5rem;
+
+        h1{
+            padding-left: 5rem;
+        }
     }
 `;
