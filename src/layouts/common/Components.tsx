@@ -14,17 +14,30 @@ export const ListBox = styled.div<BoxProps>`
     flex-direction: column;
     align-items: center;
     width: 70vw;
-    height: 20vh;
     box-shadow: 0px 4px 12px rgba(66, 66, 66, 0.198454);
     border-top: 1rem solid;
     border-color: ${(props) => props.color === "todo" ? "#E88D39" : "#4AC959"};
     margin-bottom: 1rem;
-    padding-top: 1.5rem;
+    padding: 1.5rem 1rem;
 
     h1{
         font-family: 'Poppins', sans-serif;
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: 600;
+    }
+
+    h2{
+        text-align: center;
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+        line-height: 1.5rem;
+    }
+
+    h3{
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.5rem;
     }
 
     @media(min-width: 768px) {
@@ -35,6 +48,20 @@ export const ListBox = styled.div<BoxProps>`
 
     @media(min-width: 1024px) {
         max-width: 25vw;
+
+        h1{
+            font-size: 2.5rem;
+        }
+
+        h2{
+            font-size: 1.5rem;
+            line-height: 1.875rem;
+        }
+
+        h3{
+            font-size: 1.5rem;
+            line-height: 1.875rem;
+        }
     }
 `;
 
