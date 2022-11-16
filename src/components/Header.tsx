@@ -6,6 +6,7 @@ import logo from "../assets/Fill 1.jpg";
 
 export default function Header() { 
 	const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
+	const user = localStorage.getItem("user");
 
 	const toggleModal = () => {
 		setIsModalVisible(!isModalVisible);
@@ -19,7 +20,7 @@ export default function Header() {
 					<h1>coopers</h1>
 				</Name>
 				<SignIn onClick={toggleModal}>
-                    entrar
+					{user ? "sair" : "entrar"}
 				</SignIn>
 			</Content>
 		</>

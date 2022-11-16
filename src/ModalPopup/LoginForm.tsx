@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 
 import { Title, Form, StyledLink } from "../layouts/ModalPopupStyle";
@@ -10,11 +10,6 @@ export default function LoginForm({ setTogglePage }: any) {
 	const [name, setName] = useState("");
 	const [password, setPassword] = useState("");
 	const { setUserData } = useContext(UserContext);
-	const user = localStorage.getItem("user");
-
-	useEffect(() => {
-		user ? window.location.reload() : setUserData(null);
-	}, [user]);
 
 	function signin(e: any){
 		e.preventDefault();
@@ -29,6 +24,7 @@ export default function LoginForm({ setTogglePage }: any) {
 			});
 			toast.success("Login successful!");
 			localStorage.setItem("user", JSON.stringify(res.data));
+			window.location.reload();
 		}).catch(err => {
 			console.log(err);
 			toast.error(err.response.data);
