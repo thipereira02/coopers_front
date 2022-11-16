@@ -22,7 +22,7 @@ export default function SignUpForm({ setTogglePage }: any) {
 			toast.success("Cadastro realizado com sucesso!");
 			setTogglePage(false);
 		}).catch((err) => {
-			toast.error(err.response.data);
+			toast.error(err.response.data.message);
 		});
 	}
 
@@ -41,8 +41,6 @@ export default function SignUpForm({ setTogglePage }: any) {
 					type="text"
 					value={name}
 					onChange={e => setName(e.target.value)}
-					onInvalid={e => (e.target as HTMLInputElement).setCustomValidity("Você deve inserir um nome aqui")} 
-					onInput={e => (e.target as HTMLInputElement).setCustomValidity("")}
 					required
 				/>
 				<label htmlFor="email">Email:</label>
@@ -50,8 +48,6 @@ export default function SignUpForm({ setTogglePage }: any) {
 					type="email" 
 					value={email}
 					onChange={e => setEmail(e.target.value)}
-					onInvalid={e => (e.target as HTMLInputElement).setCustomValidity("Você deve inserir um email válido aqui")}
-					onInput={e => (e.target as HTMLInputElement).setCustomValidity("")}
 					required
 				/>
 				<label htmlFor="password">Password:</label>
@@ -59,8 +55,6 @@ export default function SignUpForm({ setTogglePage }: any) {
 					type="password"
 					value={password}
 					onChange={e => setPassword(e.target.value)}
-					onInvalid={e => (e.target as HTMLInputElement).setCustomValidity("Insira uma senha com no mínimo 6 caracteres")}
-					onInput={e => (e.target as HTMLInputElement).setCustomValidity("")}
 					required
 				/>
 				<label htmlFor="password">Confirm password:</label>
@@ -68,8 +62,6 @@ export default function SignUpForm({ setTogglePage }: any) {
 					type="password" 
 					value={confirmPassword}
 					onChange={e => setConfirmPassword(e.target.value)}
-					onInvalid={e => (e.target as HTMLInputElement).setCustomValidity("As senhas não coincidem")}
-					onInput={e => (e.target as HTMLInputElement).setCustomValidity("")}
 					required
 				/>
 				<button type="submit">Register</button>
