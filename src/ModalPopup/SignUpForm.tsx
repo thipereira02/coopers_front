@@ -19,7 +19,7 @@ export default function SignUpForm({ setTogglePage }: any) {
 
 		const req = registerUser(body);
 		req.then(() => {
-			toast.success("Cadastro realizado com sucesso!");
+			toast.success("Registration done successfully!");
 			setTogglePage(false);
 		}).catch((err) => {
 			toast.error(err.response.data.message);

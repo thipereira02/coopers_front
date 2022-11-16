@@ -14,7 +14,7 @@ function registerUser(body: { username: string, email: string, password: string,
 	return axios.post(`${BASE_URL}/signup`, body);
 }
 
-function login(body: { email: string, password: string }){
+function login(body: { username: string, password: string }){
 	return axios.post(`${BASE_URL}/login`, body);
 }
 
