@@ -99,35 +99,34 @@ export const Button = styled.button`
 
 export const Tasks = styled.div`
     margin-top: 1.7rem;
+`;
 
-    div{
-        display: grid;
-        grid-template-columns: 1fr 6.5fr 1fr;
-        margin-bottom: 0.75rem;
-        align-items: center;
+export const Task = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 6.5fr 1fr;
+    margin-bottom: 0.5rem;
+    align-items: center;
 
-        p{
-            font-size: 1rem;
-            line-height: 1.2rem;
-        }
+    p{
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
 
-        a{
-            color: #999999;
-            font-size: 0.75rem;
-            text-align: right;
-            align-self: center;
-            cursor: pointer;
-        }
+    a{
+        color: #999999;
+        font-size: 0.75rem;
+        text-align: right;
+        align-self: center;
+        cursor: pointer;
     }
 
     @media(min-width: 1024px) {
-        div{
-            grid-template-columns: 1fr 6fr 1fr;
+        grid-template-columns: 1fr 6fr 1fr;
+        margin-bottom: 0.7rem;
 
-            p{
-                font-size: 1.2rem;
-                line-height: 1.5rem;
-            }
+        p{
+            font-size: 1.2rem;
+            line-height: 1.5rem;
         }
     }
 `;

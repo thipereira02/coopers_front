@@ -38,4 +38,17 @@ function deleteAllTasks(body: { taskType: string }, token: string){
 	return axios.post(`${BASE_URL}/deleteAll`, body, setConfig(token));
 }
 
-export { registerUser, login, logout, addTask, getTasks, deleteTask, deleteAllTasks };
+function updateTaskType(id: number, token: string){
+	return axios.post(`${BASE_URL}/updateTaskType/${id}`, [], setConfig(token));
+}
+
+export { 
+	registerUser, 
+	login, 
+	logout, 
+	addTask, 
+	getTasks, 
+	deleteTask, 
+	deleteAllTasks, 
+	updateTaskType 
+};
