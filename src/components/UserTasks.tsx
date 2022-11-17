@@ -5,7 +5,7 @@ import styled from "styled-components";
 import UserContext from "../contexts/UserContext";
 import RefreshContext from "../contexts/RefreshContext";
 import { Tasks, EmptyCircle, CircleFill } from "../layouts/common/Components";
-import { addTask } from "../services/requests";
+import { addTask, deleteTask } from "../services/requests";
 
 export function UserToDoTasks(tasks: any) {
 	const [text, setText] = useState("");
@@ -32,6 +32,18 @@ export function UserToDoTasks(tasks: any) {
 		});
 	}
 
+	function deleteATask(id: number) {
+		const token = userData?.token;
+		const req = deleteTask(id, token);
+		req.then(() => {
+			toast.success("Task deleted");
+			setRefresh(!refresh);
+		}).catch((err) => {
+			toast.error("An error occurred while trying to delete your task");
+			console.log(err);
+		});
+	}
+
 	return(
 		<Tasks>
 			<div>
@@ -48,7 +60,7 @@ export function UserToDoTasks(tasks: any) {
 				<div key={item.id}>
 					<EmptyCircle />
 					<p>{item.description}</p>
-					<a>delete</a>
+					<a onClick={() => deleteATask(item.id)}>delete</a>
 				</div>								
 			))}
 		</Tasks>

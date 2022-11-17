@@ -30,4 +30,8 @@ function getTasks(token: string){
 	return axios.get(`${BASE_URL}/tasks`, setConfig(token));
 }
 
-export { registerUser, login, logout, addTask, getTasks };
+function deleteTask(id: number, token: string){
+	return axios.delete(`${BASE_URL}/tasks/${id}`, setConfig(token));
+}
+
+export { registerUser, login, logout, addTask, getTasks, deleteTask };
