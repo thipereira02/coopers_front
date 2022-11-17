@@ -24,7 +24,10 @@ export default function LoginForm({ setTogglePage }: any) {
 			});
 			toast.success("Login successful!");
 			localStorage.setItem("user", JSON.stringify(res.data));
-			window.location.reload();
+			const timing = setTimeout(() => {	
+				window.location.reload();
+			}, 1500);
+			return () => clearTimeout(timing);
 		}).catch(err => {
 			console.log(err);
 			toast.error(err.response.data);
