@@ -73,6 +73,7 @@ export function UserDoneTasks(tasks: any) {
 
 	function deleteATask(id: number) {
 		const token = userData?.token;
+		
 		const req = deleteTask(id, token);
 		req.then(() => {
 			toast.success("Task deleted");

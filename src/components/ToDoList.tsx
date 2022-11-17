@@ -8,14 +8,14 @@ import element from "../assets/element.png";
 import element2 from "../assets/element2.png";
 import { ListBox, BgElement } from "../layouts/common/Components";
 import { UserDoneTasks, UserToDoTasks } from "./UserTasks";
-import { getTasks } from "../services/requests";
+import { deleteAllTasks, getTasks } from "../services/requests";
 import UserContext from "../contexts/UserContext";
 import RefreshContext from "../contexts/RefreshContext";
 
 export default function ToDoList() {
 	const user = localStorage.getItem("user");
 	const { userData } = useContext(UserContext);
-	const { refresh } = useContext(RefreshContext);
+	const { refresh, setRefresh } = useContext(RefreshContext);
 	const [toDoTasks, setToDoTasks] = useState([]);
 	const [doneTasks, setDoneTasks] = useState([]);
 
@@ -39,6 +39,20 @@ export default function ToDoList() {
 		}, [refresh]);
 	})();
 
+	function eraseAll(taskType: string) {
+		const token = userData?.token;
+		const body = { taskType };
+
+		const req = deleteAllTasks(body, token);
+		req.then(() => {
+			toast.success("All tasks deleted");
+			setRefresh(!refresh);
+		}).catch((err) => {
+			toast.error("An error occurred while trying to delete your tasks");
+			console.log(err);
+		});
+	}
+
 	return(
 		<>
 			<Banner>
@@ -55,7 +69,7 @@ export default function ToDoList() {
 						toDoTasks.length === 0 ? 
 							"" 
 							:
-							<Button>
+							<Button onClick={() => eraseAll("todo")}>
                                 erase all
 							</Button> 
 						:
@@ -73,7 +87,7 @@ export default function ToDoList() {
 						doneTasks.length === 0 ? 
 							"" 
 							:
-							<Button>
+							<Button onClick={() => eraseAll("done")}>
                                 erase all
 							</Button> 
 						:
