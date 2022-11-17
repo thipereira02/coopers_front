@@ -27,15 +27,17 @@ export default function ToDoList() {
 		setDoneTasks(userDoneTasks);
 	}
 
-	useEffect(() => {
-		const req = getTasks(userData?.token);
-		req.then((res) => {
-			filterTasks(res.data);
-		}).catch((err) => {
-			toast.error("An error occurred while trying to get your tasks");
-			console.log(err);
-		});
-	}, [refresh]);
+	user && (async () => {
+		useEffect(() => {
+			const req = getTasks(userData?.token);
+			req.then((res) => {
+				filterTasks(res.data);
+			}).catch((err) => {
+				toast.error("An error occurred while trying to get your tasks");
+				console.log(err);
+			});
+		}, [refresh]);
+	})();
 
 	return(
 		<>
