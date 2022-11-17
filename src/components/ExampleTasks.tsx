@@ -4,7 +4,6 @@ import { Tasks, EmptyCircle, CircleFill } from "../layouts/common/Components";
 
 export function TodoExample() {
 	const toDoExample = [
-		"this is a new task",
 		"Develop the To-do list page",
 		"Create the drag-and-drop function",
 		"Add new tasks",
@@ -17,6 +16,11 @@ export function TodoExample() {
 
 	return(
 		<Tasks>
+			<div>
+				<EmptyCircle />
+				<p><strong>this is a new task</strong></p>
+				<a>add</a>
+			</div>
 			{toDoExample.map((item, index) => (
 				<>
 					<div key={index}>

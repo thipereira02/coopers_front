@@ -58,7 +58,7 @@ export default function ToDoList() {
 				<ListBox color={"done"}>
 					<h1>Done</h1>
 					<h2>Congratulations!</h2>
-					<h3>You have done {doneTasks.length} tasks</h3>
+					<h3>You have done {user ? doneTasks.length : 5} tasks</h3>
 					{user ? <UserDoneTasks tasks={doneTasks} /> : <DoneExample />}
 					<Button>
                         erase all
