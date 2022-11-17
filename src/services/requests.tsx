@@ -22,4 +22,12 @@ function logout(token: string){
 	return axios.post(`${BASE_URL}/logout`, [], setConfig(token));
 }
 
-export { registerUser, login, logout };
+function addTask(body: { description: string, taskType: string }, token: string){
+	return axios.post(`${BASE_URL}/tasks`, body, setConfig(token));
+}
+
+function getTasks(token: string){
+	return axios.get(`${BASE_URL}/tasks`, setConfig(token));
+}
+
+export { registerUser, login, logout, addTask, getTasks };

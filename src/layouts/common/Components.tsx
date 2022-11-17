@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { BsCircle, BsCheckCircleFill } from "react-icons/bs";
 interface BoxProps {
     color?: string;
 }
@@ -94,5 +94,57 @@ export const Button = styled.button`
 
     @media(min-width: 768px){
         width: 7.5rem;
+    }
+`;
+
+export const Tasks = styled.div`
+    margin-top: 1.7rem;
+
+    div{
+        display: grid;
+        grid-template-columns: 1fr 6.5fr 1fr;
+        margin-bottom: 0.75rem;
+        align-items: center;
+
+        p{
+            font-size: 1rem;
+            line-height: 1.2rem;
+        }
+
+        a{
+            color: #999999;
+            font-size: 0.75rem;
+            text-align: right;
+            align-self: center;
+        }
+    }
+
+    @media(min-width: 1024px) {
+        div{
+            grid-template-columns: 1fr 6fr 1fr;
+
+            p{
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+            }
+        }
+    }
+`;
+
+export const EmptyCircle = styled(BsCircle)`
+    color:#E88D39;
+    font-size: 1rem;
+
+    @media(min-width: 1024px) {
+        font-size: 1.5rem;
+    }
+`;
+
+export const CircleFill = styled(BsCheckCircleFill)`
+    color:#4AC959;
+    font-size: 1rem;
+
+    @media(min-width: 1024px) {
+        font-size: 1.5rem;
     }
 `;
