@@ -116,6 +116,7 @@ export const Tasks = styled.div`
             font-size: 0.75rem;
             text-align: right;
             align-self: center;
+            cursor: pointer;
         }
     }
 

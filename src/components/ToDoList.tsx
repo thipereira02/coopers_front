@@ -10,10 +10,12 @@ import { ListBox, BgElement } from "../layouts/common/Components";
 import { UserDoneTasks, UserToDoTasks } from "./UserTasks";
 import { getTasks } from "../services/requests";
 import UserContext from "../contexts/UserContext";
+import RefreshContext from "../contexts/RefreshContext";
 
 export default function ToDoList() {
 	const user = localStorage.getItem("user");
 	const { userData } = useContext(UserContext);
+	const { refresh } = useContext(RefreshContext);
 	const [toDoTasks, setToDoTasks] = useState([]);
 	const [doneTasks, setDoneTasks] = useState([]);
 
@@ -33,7 +35,7 @@ export default function ToDoList() {
 			toast.error("An error occurred while trying to get your tasks");
 			console.log(err);
 		});
-	}, []);
+	}, [refresh]);
 
 	return(
 		<>
@@ -54,7 +56,7 @@ export default function ToDoList() {
 				<ListBox color={"done"}>
 					<h1>Done</h1>
 					<h2>Congratulations!</h2>
-					<h3>You have done 5 tasks</h3>
+					<h3>You have done {doneTasks.length} tasks</h3>
 					{user ? <UserDoneTasks tasks={doneTasks} /> : <DoneExample />}
 					<Button>
                         erase all
