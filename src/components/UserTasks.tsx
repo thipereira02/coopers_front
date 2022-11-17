@@ -44,14 +44,12 @@ export function UserToDoTasks(tasks: any) {
 				/>
 				<a onClick={newTask}>add</a>
 			</div>
-			{tasks.tasks.map((item: any, index: number) => (
-				<>	
-					<div key={index}>
-						<EmptyCircle />
-						<p>{item.description}</p>
-						<a>delete</a>
-					</div>								
-				</>
+			{tasks.tasks.map((item: any) => (
+				<div key={item.id}>
+					<EmptyCircle />
+					<p>{item.description}</p>
+					<a>delete</a>
+				</div>								
 			))}
 		</Tasks>
 	);
@@ -60,14 +58,12 @@ export function UserToDoTasks(tasks: any) {
 export function UserDoneTasks(tasks: any) {
 	return(
 		<Tasks>
-			{tasks.tasks.map((item: any, index: number) => (
-				<>
-					<div key={index}>
-						<CircleFill />
-						<p>{item.description}</p>
-						<a>delete</a>
-					</div>								
-				</>
+			{tasks.tasks.map((item: any) => (
+				<div key={item.id}>
+					<CircleFill />
+					<p>{item.description}</p>
+					<a>delete</a>
+				</div>								
 			))}
 		</Tasks>
 	);
