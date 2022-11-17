@@ -51,18 +51,36 @@ export default function ToDoList() {
 					<h1>To-do</h1>
 					<h2>Take a breath. <br/>Start doing.</h2>
 					{user ? <UserToDoTasks tasks={toDoTasks} /> : <TodoExample />}
-					<Button>
-                        erase all
-					</Button>
+					{user ? 
+						toDoTasks.length === 0 ? 
+							"" 
+							:
+							<Button>
+                                erase all
+							</Button> 
+						:
+						<Button>
+                            erase all
+						</Button>
+					}
 				</ListBox>
 				<ListBox color={"done"}>
 					<h1>Done</h1>
-					<h2>Congratulations!</h2>
-					<h3>You have done {user ? doneTasks.length : 5} tasks</h3>
+					{user ? doneTasks.length > 0 ? <h2>Congratulations!</h2> : <h2>Nothing done yet. <br/>Keep going!</h2> : "Congratulations!"}
+					<h3>You have done {user ? doneTasks.length : 5} {user ? doneTasks.length === 1 ? "task" : "tasks" : "tasks"}</h3>
 					{user ? <UserDoneTasks tasks={doneTasks} /> : <DoneExample />}
-					<Button>
-                        erase all
-					</Button>
+					{user ? 
+						doneTasks.length === 0 ? 
+							"" 
+							:
+							<Button>
+                                erase all
+							</Button> 
+						:
+						<Button>
+                            erase all
+						</Button>
+					}
 				</ListBox>
 			</Lists>
 			<BgElement src={element} alt="element" top={"back"} />

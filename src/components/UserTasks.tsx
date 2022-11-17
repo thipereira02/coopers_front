@@ -68,13 +68,28 @@ export function UserToDoTasks(tasks: any) {
 }
 
 export function UserDoneTasks(tasks: any) {
+	const { userData } = useContext(UserContext);
+	const { refresh, setRefresh } = useContext(RefreshContext);
+
+	function deleteATask(id: number) {
+		const token = userData?.token;
+		const req = deleteTask(id, token);
+		req.then(() => {
+			toast.success("Task deleted");
+			setRefresh(!refresh);
+		}).catch((err) => {
+			toast.error("An error occurred while trying to delete your task");
+			console.log(err);
+		});
+	}
+
 	return(
 		<Tasks>
 			{tasks.tasks.map((item: any) => (
 				<div key={item.id}>
 					<CircleFill />
 					<p>{item.description}</p>
-					<a>delete</a>
+					<a onClick={() => deleteATask(item.id)}>delete</a>
 				</div>								
 			))}
 		</Tasks>
