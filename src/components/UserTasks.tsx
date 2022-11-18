@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import UserContext from "../contexts/UserContext";
 import RefreshContext from "../contexts/RefreshContext";
@@ -9,6 +10,7 @@ import { addTask, deleteTask, updateTaskType, updateTaskDescription } from "../s
 
 export function UserToDoTasks({tasks, setTasks}: any) {
 	const [text, setText] = useState("");
+	const [task, setTask] = useState(tasks);
 	const { userData } = useContext(UserContext);
 	const { refresh, setRefresh } = useContext(RefreshContext);
 	const token = userData?.token;
@@ -68,6 +70,16 @@ export function UserToDoTasks({tasks, setTasks}: any) {
 		});
 	}
 
+	function handleOnDragEnd(result: any) {
+		if (!result.destination) return;
+
+		const items = Array.from(task);
+		const [reorderedItem] = items.splice(result.source.index, 1);
+		items.splice(result.destination.index, 0, reorderedItem);
+
+		setTask(items);
+	}
+
 	return(
 		<Tasks>
 			<Task>
@@ -80,31 +92,44 @@ export function UserToDoTasks({tasks, setTasks}: any) {
 				/>
 				<a onClick={newTask}>add</a>
 			</Task>
-			{tasks.map((item: any) => (
-				<Task key={item.id}>
-					<EmptyCircle cursor={"pointer"} onClick={() => updateType(item.id)} />
-					<TextEditable
-						type="text"
-						placeholder={item.description}
-						value={item.description}
-						onChange={(e: any)=>setTasks(
-							tasks.map(
-								(t:any) => {
-									if (t.id === item.id){
-										t.description = e.target.value;
-										t.changed = true;
-									}
-									return t;
-								}
-							)
-						)}
-					/>
-					{item.changed ? 
-						<a onClick={() => updateATask(item.id)}>update</a> :
-						<a onClick={() => deleteATask(item.id)}>delete</a>
-					}
-				</Task>								
-			))}
+			<DragDropContext onDragEnd={handleOnDragEnd}>
+				<Droppable droppableId="tasks">
+					{provided => (
+						<ul className="tasks" {...provided.droppableProps} ref={provided.innerRef}>
+							{tasks.map((item: any, index: number) => (
+								<Draggable key={item.id} draggableId={item.id} index={index}>
+									{provided => (
+										<Task {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+											<EmptyCircle cursor={"pointer"} onClick={() => updateType(item.id)} />
+											<TextEditable
+												type="text"
+												placeholder={item.description}
+												value={item.description}
+												onChange={(e: any)=>setTasks(
+													tasks.map(
+														(t:any) => {
+															if (t.id === item.id){
+																t.description = e.target.value;
+																t.changed = true;
+															}
+															return t;
+														}
+													)
+												)}
+											/>
+											{item.changed ? 
+												<a onClick={() => updateATask(item.id)}>update</a> :
+												<a onClick={() => deleteATask(item.id)}>delete</a>
+											}
+										</Task>								
+									)}
+								</Draggable>
+							))}
+							{provided.placeholder}
+						</ul>
+					)}
+				</Droppable>
+			</DragDropContext>
 		</Tasks>
 	);
 }
