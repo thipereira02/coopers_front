@@ -42,6 +42,10 @@ function updateTaskType(id: number, token: string){
 	return axios.post(`${BASE_URL}/updateTaskType/${id}`, [], setConfig(token));
 }
 
+function updateTaskDescription(id: number, body: { description: string }, token: string){
+	return axios.post(`${BASE_URL}/updateTaskDescription/${id}`, body, setConfig(token));
+}
+
 export { 
 	registerUser, 
 	login, 
@@ -50,5 +54,6 @@ export {
 	getTasks, 
 	deleteTask, 
 	deleteAllTasks, 
-	updateTaskType 
+	updateTaskType,
+	updateTaskDescription,
 };

@@ -64,10 +64,10 @@ export default function ToDoList() {
 				<ListBox color={"todo"}>
 					<h1>To-do</h1>
 					<h2>Take a breath. <br/>Start doing.</h2>
-					{user ? <UserToDoTasks tasks={toDoTasks} /> : <TodoExample />}
+					{user ? <UserToDoTasks tasks={toDoTasks} setTasks={setToDoTasks} /> : <TodoExample />}
 					{user ? 
 						toDoTasks.length === 0 ? 
-							"" 
+							""
 							:
 							<Button onClick={() => eraseAll("todo")}>
                                 erase all
