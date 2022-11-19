@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 
 import icon from "../assets/letter.svg";
 
 export default function ContactForm() {
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+	const [telephone, setTelephone] = useState("");
+
+	function sendEmail(e: any) {
+		e.preventDefault();
+
+		if (name === "") {
+			toast.error("Please enter your name");
+			return;
+		}
+
+		if (email === "") {
+			toast.error("Please enter your email");
+			return;
+		}
+        
+		if (telephone === "") {
+			toast.error("Please enter your telephone");
+			return;
+		}
+
+		if (message === "") {
+			toast.error("Please enter your message");
+			return;
+		}
+
+		toast.success("Your message was sent successfully. We will contact you soon.");
+		setName("");
+		setEmail("");
+		setMessage("");
+		setTelephone("");
+	}
+
 	return(
 		<Content>
 			<Info>
@@ -15,18 +51,41 @@ export default function ContactForm() {
 					<h2>TOUCH</h2>
 				</Text>
 			</Info>
-			<Form>
+			<Form onSubmit={sendEmail}>
 				<label htmlFor="name">Your name</label>
-				<input type="text" id="name" placeholder="type your name here..." />
+				<input 
+					type="text" 
+					id="name" 
+					placeholder="type your name here..." 
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+				/>
 				<div>
 					<EmailLabel htmlFor="email">Email*</EmailLabel>
-					<input type="email" id="email" placeholder="example@example.com" />
+					<input 
+						type="email" 
+						id="email" 
+						placeholder="example@example.com" 
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
 					<TelLabel htmlFor="message" id="telephone">Telephone*</TelLabel>
-					<input type="tel" id="telephone" placeholder="(  ) ____-____" />
+					<input 
+						type="tel" 
+						id="telephone" 
+						placeholder="(  ) ____-____" 
+						value={telephone}
+						onChange={(e) => setTelephone(e.target.value)}
+					/>
 				</div>
 				<label htmlFor="message">Message*</label>
-				<textarea id="message" placeholder="Type what you want to say to us" />
-				<button>SEND NOW</button>
+				<textarea 
+					id="message" 
+					placeholder="Type what you want to say to us" 
+					value={message}
+					onChange={(e) => setMessage(e.target.value)}
+				/>
+				<button type="submit">SEND NOW</button>
 			</Form>
 		</Content>
 	);
