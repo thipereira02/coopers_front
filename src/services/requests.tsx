@@ -46,6 +46,10 @@ function updateTaskDescription(id: number, body: { description: string }, token:
 	return axios.post(`${BASE_URL}/updateTaskDescription/${id}`, body, setConfig(token));
 }
 
+function contact(body: { name: string, email: string, text: string, telephone: string }){
+	return axios.post(`${BASE_URL}/contact`, body);
+}
+
 export { 
 	registerUser, 
 	login, 
@@ -56,4 +60,5 @@ export {
 	deleteAllTasks, 
 	updateTaskType,
 	updateTaskDescription,
+	contact,
 };

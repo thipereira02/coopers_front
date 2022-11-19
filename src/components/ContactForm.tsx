@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import styled from "styled-components";
 
 import icon from "../assets/letter.svg";
+import { contact } from "../services/requests";
 
 export default function ContactForm() {
 	const [name, setName] = useState("");
@@ -13,31 +14,20 @@ export default function ContactForm() {
 	function sendEmail(e: any) {
 		e.preventDefault();
 
-		if (name === "") {
-			toast.error("Please enter your name");
-			return;
-		}
+		const body = { name, email, text: message, telephone };
 
-		if (email === "") {
-			toast.error("Please enter your email");
-			return;
+		const req = contact(body);
+		req.then(() => {
+			toast.success("Your message was sent. We will contact you soon.");
+			setName("");
+			setEmail("");
+			setMessage("");
+			setTelephone("");
 		}
-        
-		if (telephone === "") {
-			toast.error("Please enter your telephone");
-			return;
-		}
-
-		if (message === "") {
-			toast.error("Please enter your message");
-			return;
-		}
-
-		toast.success("Your message was sent successfully. We will contact you soon.");
-		setName("");
-		setEmail("");
-		setMessage("");
-		setTelephone("");
+		).catch((err) => {
+			toast.error("An error occurred while trying to send your message");
+			console.log(err);
+		});
 	}
 
 	return(
