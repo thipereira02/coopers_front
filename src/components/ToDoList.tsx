@@ -80,7 +80,7 @@ export default function ToDoList() {
 				</ListBox>
 				<ListBox color={"done"}>
 					<h1>Done</h1>
-					{user ? doneTasks.length > 0 ? <h2>Congratulations!</h2> : <h2>Nothing done yet. <br/>Keep going!</h2> : "Congratulations!"}
+					{user ? doneTasks.length > 0 ? <h2>Congratulations!</h2> : <h2>Nothing done yet. <br/>Keep going!</h2> : <h2>Congratulations!</h2>}
 					<h3>You have done {user ? doneTasks.length : 5} {user ? doneTasks.length === 1 ? "task" : "tasks" : "tasks"}</h3>
 					{user ? <UserDoneTasks tasks={doneTasks} /> : <DoneExample />}
 					{user ? 
