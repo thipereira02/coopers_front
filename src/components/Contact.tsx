@@ -21,6 +21,7 @@ const Content = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0 2rem;
+    margin-top: 13rem;
 
     div{
         position: relative;
@@ -33,6 +34,7 @@ const Content = styled.div`
 
     @media (min-width: 768px){
         padding: 0 20%;
+        margin-top: 12rem;
 
         img{
             height: 11rem;
@@ -41,6 +43,7 @@ const Content = styled.div`
 
     @media (min-width: 1024px){
         padding: 0 30%;
+        margin-top: 17rem;
     }
 `;
 

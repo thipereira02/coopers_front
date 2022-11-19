@@ -22,13 +22,11 @@ export function TodoExample() {
 				<a>add</a>
 			</div>
 			{toDoExample.map((item, index) => (
-				<>
-					<div key={index}>
-						<EmptyCircle />
-						<p>{item}</p>
-						<a>delete</a>
-					</div>								
-				</>
+				<div key={index}>
+					<EmptyCircle />
+					<p>{item}</p>
+					<a>delete</a>
+				</div>								
 			))}
 		</Tasks>
 	);
@@ -46,13 +44,11 @@ export function DoneExample() {
 	return(
 		<Tasks>
 			{doneExamples.map((item, index) => (
-				<>
-					<div key={index}>
-						<CircleFill />
-						<p>{item}</p>
-						<a>delete</a>
-					</div>
-				</>
+				<div key={index}>
+					<CircleFill />
+					<p>{item}</p>
+					<a>delete</a>
+				</div>
 			))}
 		</Tasks>
 	);

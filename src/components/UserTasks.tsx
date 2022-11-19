@@ -191,14 +191,6 @@ const TextEditable = styled.input`
 	font-size: 1rem;
 	line-height: 1.2rem;
 
-	::placeholder {
-		color: #000;
-	}
-
-	:focus::placeholder {
-		color: transparent;
-	}
-
 	@media(min-width: 1024px){
 		font-size: 1.2rem;
 		line-height: 1.5rem;
