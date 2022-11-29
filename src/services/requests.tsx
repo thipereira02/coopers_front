@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://back-coopers.herokuapp.com";
+const BASE_URL = "https://back-coopers.fly.dev";
 
 function setConfig(token: string){
 	return {
