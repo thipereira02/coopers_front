@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://back-coopers.fly.dev";
+const BASE_URL = "http://autumn-violet-3714.fly.dev";
 
 function setConfig(token: string){
 	return {
